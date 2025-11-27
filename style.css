@@ -1,4 +1,4 @@
-/* Общие настройки */
+
 *,
 *::before,
 *::after {
@@ -24,16 +24,16 @@ body {
   width: 100%;
 }
 
-/* ===== СЕКЦИИ ===== */
+
 
 .section {
   position: relative;
   width: 100%;
-  height: 100vh;              /* каждая секция — экран */
+  height: 100vh;              
   overflow: hidden;
 }
 
-/* Фоны, чтобы легко двигать/масштабировать */
+
 .section-bg {
   position: absolute;
   inset: 0;
@@ -43,7 +43,7 @@ body {
   z-index: 1;
 }
 
-/* Подставляем нужные фоновые картинки */
+
 .section-bg-home {
   background-image: url("bg-home.png");
 }
@@ -56,7 +56,7 @@ body {
   background-image: url("bg-chart.png");
 }
 
-/* ===== SECTION 1 : HERO ===== */
+
 
 .section-hero {
   display: flex;
@@ -64,21 +64,21 @@ body {
   justify-content: center;
 }
 
-/* обертка персонажа — можешь двигать top/left/scale тут */
+
 .hero-character-wrapper {
   position: absolute;
   z-index: 2;
-  left: 3vw;        /* двигай как хочешь */
+  left: 3vw;        
   bottom: 5vh;
 }
 
 .hero-character {
-  width: 400px;     /* меняешь масштаб персонажа тут */
+  width: 400px;     
   max-width: 35vw;
   animation: floatCharacter 3s ease-in-out infinite;
 }
 
-/* заголовок по центру */
+
 .hero-title-wrapper {
   position: relative;
   z-index: 2;
@@ -96,7 +96,7 @@ body {
 .x-button {
   position: absolute;
   z-index: 2;
-  right: 2.5vw;  /* двигаешь позицию */
+  right: 2.5vw;  
   bottom: 3vh;
   border: none;
   background: transparent;
@@ -110,7 +110,7 @@ body {
   display: block;
 }
 
-/* стрелка вниз */
+
 .scroll-down-wrapper {
   position: absolute;
   z-index: 2;
@@ -130,7 +130,7 @@ body {
   animation: bounceArrow 1.5s ease-in-out infinite;
 }
 
-/* ховер-анимация для кнопок на первой странице */
+
 .btn-hover {
   transition: transform 0.2s ease, filter 0.2s ease;
 }
@@ -140,48 +140,48 @@ body {
   filter: brightness(1.08);
 }
 
-/* ===== SECTION 2 : ABOUT ===== */
+
 
 .section-about {
-  padding: 0;                 /* фон на весь экран, без внутренних отступов */
+  padding: 0;                 
 }
 
-/* крупный About слева сверху */
+
 .about-title-wrapper {
   position: absolute;
   z-index: 2;
-  top: 6vh;                   /* можно двигать вверх/вниз */
-  left: 5vw;                  /* можно двигать влево/вправо */
+  top: 6vh;                   
+  left: 5vw;                  
 }
 
 .about-title {
   margin: 0;
   font-weight: 800;
-  font-size: clamp(3.5rem, 6vw, 5rem);  /* крупный, как на скрине */
+  font-size: clamp(3.5rem, 6vw, 5rem); 
 }
 
-/* блок текста по центру, уже по ширине */
+
 .about-text-wrapper {
   position: absolute;
   z-index: 2;
-  top: 28vh;                  /* расстояние от верхнего края (меняй по вкусу) */
+  top: 28vh;                  
   left: 50%;
-  transform: translateX(-50%);/* центрируем по горизонтали */
+  transform: translateX(-50%);
   
-  max-width: 55vw;            /* пропорции как на скрине – узкий текстовый блок */
+  max-width: 55vw;            
   text-align: center;
   font-size: clamp(1.05rem, 1.5vw, 1.35rem);
   line-height: 1.5;
 }
 
 
-/* ===== SECTION 3 : CHART ===== */
+
 
 .section-chart {
   padding: 4vh 5vw;
 }
 
-/* заголовок Chart — как на скрине слева */
+
 .chart-title-wrapper {
   position: relative;
   z-index: 2;
@@ -194,15 +194,15 @@ body {
   font-size: clamp(2.2rem, 4vw, 3.3rem);
 }
 
-/* блок под график по центру */
+
 .chart-frame-wrapper {
   position: relative;
   z-index: 2;
   margin-top: 4vh;
   width: 100%;
-  max-width: 1100px;  /* можешь менять размер блока */
+  max-width: 1100px;  
   height: min(60vh, 520px);
-  background: #000;   /* на случай, если iframe не загрузился */
+  background: #000;   
   margin-left: auto;
   margin-right: auto;
   border-radius: 8px;
@@ -215,7 +215,7 @@ body {
   border: none;
 }
 
-/* ===== АНИМАЦИИ ===== */
+
 
 @keyframes floatCharacter {
   0% {
@@ -241,7 +241,7 @@ body {
   }
 }
 
-/* ===== АДАПТИВ ===== */
+
 
 @media (max-width: 768px) {
   .hero-character {
@@ -266,3 +266,4 @@ body {
     max-width: 100%;
   }
 }
+
