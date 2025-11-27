@@ -1,0 +1,268 @@
+/* Общие настройки */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #ffffff;
+  color: #000000;
+}
+
+.page-wrapper {
+  width: 100%;
+}
+
+/* ===== СЕКЦИИ ===== */
+
+.section {
+  position: relative;
+  width: 100%;
+  height: 100vh;              /* каждая секция — экран */
+  overflow: hidden;
+}
+
+/* Фоны, чтобы легко двигать/масштабировать */
+.section-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+/* Подставляем нужные фоновые картинки */
+.section-bg-home {
+  background-image: url("bg-home.png");
+}
+
+.section-bg-about {
+  background-image: url("bg-about.png");
+}
+
+.section-bg-chart {
+  background-image: url("bg-chart.png");
+}
+
+/* ===== SECTION 1 : HERO ===== */
+
+.section-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* обертка персонажа — можешь двигать top/left/scale тут */
+.hero-character-wrapper {
+  position: absolute;
+  z-index: 2;
+  left: 3vw;        /* двигай как хочешь */
+  bottom: 5vh;
+}
+
+.hero-character {
+  width: 400px;     /* меняешь масштаб персонажа тут */
+  max-width: 35vw;
+  animation: floatCharacter 3s ease-in-out infinite;
+}
+
+/* заголовок по центру */
+.hero-title-wrapper {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  top:-200px;
+}
+
+.hero-title {
+  margin: 0;
+  font-weight: 800;
+  font-size: clamp(5.5rem, 10vw, 8.5rem);
+}
+
+/* кнопка X */
+.x-button {
+  position: absolute;
+  z-index: 2;
+  right: 2.5vw;  /* двигаешь позицию */
+  bottom: 3vh;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.x-logo-img {
+  width: 60px;
+  max-width: 12vw;
+  display: block;
+}
+
+/* стрелка вниз */
+.scroll-down-wrapper {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: 4vh;
+  transform: translateX(-50%);
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.scroll-down-img {
+  width: 56px;
+  max-width: 10vw;
+  display: block;
+  animation: bounceArrow 1.5s ease-in-out infinite;
+}
+
+/* ховер-анимация для кнопок на первой странице */
+.btn-hover {
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn-hover:hover {
+  transform: translateY(-4px);
+  filter: brightness(1.08);
+}
+
+/* ===== SECTION 2 : ABOUT ===== */
+
+.section-about {
+  padding: 0;                 /* фон на весь экран, без внутренних отступов */
+}
+
+/* крупный About слева сверху */
+.about-title-wrapper {
+  position: absolute;
+  z-index: 2;
+  top: 6vh;                   /* можно двигать вверх/вниз */
+  left: 5vw;                  /* можно двигать влево/вправо */
+}
+
+.about-title {
+  margin: 0;
+  font-weight: 800;
+  font-size: clamp(3.5rem, 6vw, 5rem);  /* крупный, как на скрине */
+}
+
+/* блок текста по центру, уже по ширине */
+.about-text-wrapper {
+  position: absolute;
+  z-index: 2;
+  top: 28vh;                  /* расстояние от верхнего края (меняй по вкусу) */
+  left: 50%;
+  transform: translateX(-50%);/* центрируем по горизонтали */
+  
+  max-width: 55vw;            /* пропорции как на скрине – узкий текстовый блок */
+  text-align: center;
+  font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+  line-height: 1.5;
+}
+
+
+/* ===== SECTION 3 : CHART ===== */
+
+.section-chart {
+  padding: 4vh 5vw;
+}
+
+/* заголовок Chart — как на скрине слева */
+.chart-title-wrapper {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 2vh;
+}
+
+.chart-title {
+  margin: 0;
+  font-weight: 800;
+  font-size: clamp(2.2rem, 4vw, 3.3rem);
+}
+
+/* блок под график по центру */
+.chart-frame-wrapper {
+  position: relative;
+  z-index: 2;
+  margin-top: 4vh;
+  width: 100%;
+  max-width: 1100px;  /* можешь менять размер блока */
+  height: min(60vh, 520px);
+  background: #000;   /* на случай, если iframe не загрузился */
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.chart-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ===== АНИМАЦИИ ===== */
+
+@keyframes floatCharacter {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceArrow {
+  0% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, -8px);
+  }
+  100% {
+    transform: translate(-50%, 0);
+  }
+}
+
+/* ===== АДАПТИВ ===== */
+
+@media (max-width: 768px) {
+  .hero-character {
+    width: 180px;
+  }
+
+  .hero-character-wrapper {
+    left: 4vw;
+    bottom: 3vh;
+  }
+
+  .x-logo-img {
+    width: 46px;
+  }
+
+  .scroll-down-img {
+    width: 44px;
+  }
+
+  .about-text-wrapper,
+  .chart-frame-wrapper {
+    max-width: 100%;
+  }
+}
